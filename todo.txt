@@ -1,0 +1,9 @@
+TODO:
+
+Form layout: can be made more generic for the forms;
+    -- add mapping of form items
+    -- check how logic can work with the layout
+    -- add the buttona and logo to the layout so it can look more like the xd file
+
+SIGN UP /SIGN IN
+    -- wierd rssuite button activations; need to override
