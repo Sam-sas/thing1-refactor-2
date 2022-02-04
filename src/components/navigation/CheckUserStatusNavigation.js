@@ -4,7 +4,7 @@ import LandingPage from '../../pages/LandingPage';
 import { useAuth } from '../../utilities/contexts/authContext';
 import Dashboard from '../../pages/Dashboard';
 
-export default function LoggedInNavigation() {
+export default function CheckUserStatusNavigation() {
     const { currentUser } = useAuth();
 
 

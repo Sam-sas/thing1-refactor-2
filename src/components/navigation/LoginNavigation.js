@@ -16,13 +16,9 @@ export default function LoginNavigation() {
         <div className="decorative-div-blue w-100 blue-background br-upturn"></div>
         <Nav className="d-flex justify-content-center">
           {LINKS.map((item) => (
-            <Nav.Item key={item.to}>
-              <Link
-                to={item.to}
-                className={item.to === location.pathname ? "active" : ""}
-              >
+            <Nav.Item key={item.to} as={Link} to={item.to}
+            className={item.to === location.pathname ? "active" : ""}>
                 {item.text}
-              </Link>
             </Nav.Item>
           ))}
         </Nav>

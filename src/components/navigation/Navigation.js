@@ -30,14 +30,11 @@ export default function Navigation() {
     <IconContext.Provider value={{ color: "#fff" }}>
     <Navbar className="blue-background">
         <Nav vertical className="d-flex flex-column h-100">
+          <Nav.Item as={Link} to="/account">Account</Nav.Item>
           {NavigationData.map((item, index) => (
-            <Nav.Item key={index}>
-              <Link
-                to={item.path}
-                className={item.path === location.pathname ? "active" : ""}
-              >
+            <Nav.Item key={index} as={Link}  to={item.path}
+            className={item.path === location.pathname ? "active" : ""}>
                 {item.icon} {item.title}
-              </Link>
             </Nav.Item>
           ))}
           <Nav.Item>

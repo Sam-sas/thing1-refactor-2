@@ -7,3 +7,9 @@ Form layout: can be made more generic for the forms;
 
 SIGN UP /SIGN IN
     -- wierd rssuite button activations; need to override
+
+AUTHFORMS
+    -- common to call database; make a one stop shop utility script
+
+PROFILE PAGES
+    -- create layout
