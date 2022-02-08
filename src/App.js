@@ -15,6 +15,8 @@ import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import UpdateProfile from "./components/authforms/UpdateProfile";
 import CheckUserStatusNavigation from "./components/navigation/CheckUserStatusNavigation";
+import UpdateLogin from "./components/authforms/UpdateLogin";
+import UpdateExpertise from "./components/authforms/UpdateExpertise";
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
         <Route path="/sign-up" component={SignUp}></Route>
 
         <Route path="/account" component={Account}></Route>
+        <Route path='/update-login' component={UpdateLogin}></Route>
+        <Route path='/update-profile' component={UpdateProfile}></Route>
+        <Route path='/update-expertise' component={UpdateExpertise}></Route>
+
         <Route path="/expert-search" component={SearchExpert}></Route>
         <Route path="/calendar" component={Calendar}></Route>
         <Route path="/contact-page" component={ContactUs}></Route>

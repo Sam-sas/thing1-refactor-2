@@ -18,8 +18,7 @@ export default function SignIn() {
     signInWithProvider(new firebase.auth.GoogleAuthProvider());
   };
 
-  async function handleSignIn(e) {
-    e.preventDefault();
+  async function handleSignIn() {
     try {
       setError("");
       setLoading(true);

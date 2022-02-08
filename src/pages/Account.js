@@ -38,15 +38,6 @@ export default function Account() {
     }
   };
 
-  const setImg = (user) => {
-    if (user && user.avatarUrl && user.avatar !== blankAvatar) {
-      setAvatarUrl(user.avatarUrl);
-      return avatarUrl;
-    } else {
-      return avatarUrl;
-    }
-  };
-
   useEffect(() => {
     const subscription = { unsubscribe: () => undefined };
 
@@ -62,9 +53,13 @@ export default function Account() {
         const profileQuerySnapshot = await getDocs(profileQuery);
         profileQuerySnapshot.forEach((profileFound) => {
           currentProfile = profileFound.data();
-          setUser(currentProfile);
-          getExpert(currentProfile);
-          getExpertList(currentProfile);
+          if(currentProfile !== user) {
+            setUser(currentProfile);
+            setImg(currentProfile);
+            getExpert(currentProfile);
+            getExpertList(currentProfile);
+          } 
+
         });
         setLoading(false);
       } catch (err) {
@@ -73,6 +68,15 @@ export default function Account() {
         setLoading(false);
       }
       subscription.unsubscribe();
+    };
+
+    const setImg = (user) => {
+      if (user && user.avatarUrl && user.avatar !== blankAvatar) {
+        setAvatarUrl(user.avatarUrl);
+        return avatarUrl;
+      } else {
+        return avatarUrl;
+      }
     };
 
     const getExpert = async (user) => {
@@ -100,7 +104,7 @@ export default function Account() {
     return () => {
       subscription.unsubscribe();
     };
-  }, [currentUser.uid]);
+  }, [currentUser]);
 
   return (
     <div>
@@ -108,7 +112,7 @@ export default function Account() {
         {loading && <Loader size="md" center speed="slow" />}
         {error && <Message type="error">{error}</Message>}
         <div>
-          <img src={setImg(user)} alt="avatar of you" className="w-100 h-200" />
+          <img src={avatarUrl} alt="avatar of you" className="w-100 h-200" />
         </div>
         <Row className="d-flex justify-content-between">
           {/* isExpert --> check expert collection */}

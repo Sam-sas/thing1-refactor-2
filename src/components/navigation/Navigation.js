@@ -10,11 +10,6 @@ export default function Navigation() {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
   const location = useLocation();
-  const LINKS = [
-    { to: "/", text: "return" },
-    { to: "/sign-in", text: "Sign In" },
-    { to: "/sign-up", text: "Sign Up" },
-  ];
 
   const handleLogout = async () => {
     try {

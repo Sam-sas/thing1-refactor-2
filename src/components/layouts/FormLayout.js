@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Col, Grid, Panel, Container, Row } from "rsuite";
-import LoginNavigation from "../navigation/LoginNavigation";
+import { SIGNINLINKS } from "../../utilities/utilities";
+import SinglePageNavigation from "../navigation/SinglePageNavigation";
 
 export default function FormLayout({ children }) {
   const location = useLocation();
@@ -15,11 +16,11 @@ export default function FormLayout({ children }) {
               location.pathname === "sign-in" ||
               (location.pathname === "forgot-password" && (
                 <Panel>
-                  <LoginNavigation />
+                  <SinglePageNavigation links={SIGNINLINKS}  />
                 </Panel>
               ))}
 
-            <Panel className="align-items-center d-flex flex-column form-panel validation-form-container">
+            <Panel className="align-items-center d-flex flex-column form-panel validation-form-container z-999">
               {children}
             </Panel>
           </Col>
